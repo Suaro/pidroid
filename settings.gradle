@@ -1,0 +1,3 @@
+include ':pidroid'
+include ':app'
+rootProject.name = "PiDroid"
