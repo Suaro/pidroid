@@ -14,15 +14,7 @@
   * [Motivation](#motivation)
   * [Built With](#built-with)
   * [Roadmap](#roadmap)
-* [Usage](#usage)
-	* [Scripts](#scripts)
-	* [Docker usage](#docker-usage)
-	* [Local usage](#local-usage)
-	* [Visual Studio Code usage](#vscode-usage)
-* [Project branch management](#pbmanagment)
-	* [Main branch](#main-branch)
-	* [Secondary branch](#secondary-branch)
-	* [Others](#othersbranch)
+
 
 ## About the Project
 
@@ -57,3 +49,6 @@ This library currently is full developed in Kotlin with C++, no additional depen
 - [ ] Neon support
 - [ ] SSE support
 - [ ] Tegra support
+
+
+README in construction... ;)
