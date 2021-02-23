@@ -33,7 +33,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
     if (status != JNI_OK)
         return -1;
 
-    int result = pidroid.loadClasses(env);
+    int result = pidroidlib::Pidroid::loadClasses(env);
 
     if(result != 0) {
         return result;
@@ -234,6 +234,46 @@ int pidroidlib::Pidroid::loadClasses(JNIEnv *env) {
     return 0;
 }
 
+
+
+void
+pidroidlib::Pidroid::setup(JNIEnv *env, jobject thiz, jobject pidroidConfig, jobject assetManager) {
+    pidroidlib::CascadeParams cascadeParams = {
+            .minSize = env->GetIntField(pidroidConfig, jPidroidConfig.minsize),
+            .maxSize = env->GetIntField(pidroidConfig, jPidroidConfig.maxsize),
+            .shiftFactor = env->GetFloatField(pidroidConfig, jPidroidConfig.stridefactor),
+            .scaleFactor = env->GetFloatField(pidroidConfig, jPidroidConfig.scalefactor),
+            .angle = env->GetFloatField(pidroidConfig, jPidroidConfig.angle),
+            .minThreshold = env->GetFloatField(pidroidConfig, jPidroidConfig.qthreshold)
+    };
+
+    perturbs = env->GetIntField(pidroidConfig, jPidroidConfig.perturbs);
+    clustering = env->GetBooleanField(pidroidConfig, jPidroidConfig.clustering);
+    pupilDetectionEnable = env->GetBooleanField(pidroidConfig, jPidroidConfig.pupilDetectionEnable);
+    landmarkDetectionEnable = env->GetBooleanField(pidroidConfig, jPidroidConfig.landmarkDetectionEnable);
+    prominentFaceOnly = env->GetBooleanField(pidroidConfig, jPidroidConfig.prominentFaceOnly);
+
+    AAssetManager *mgr = AAssetManager_fromJava(env, assetManager);
+
+    std::vector<char> facefinder = readFileFromAssets(env, mgr, "", "facefinder");
+    std::vector<char> puploc = readFileFromAssets(env, mgr, "", "puploc");
+
+    picol = pidroidlib::Pico(cascadeParams);
+    picol.unpackPicoCascade(facefinder);
+
+    puploc1 = pidroidlib::Puploc();
+    puploc1.unpackCascade(puploc);
+
+    //TODO: Improve flp reads.
+    std::vector<std::string> flpCascades = {"lp38", "lp42", "lp44",
+                                            "lp46", "lp81", "lp82",
+                                            "lp84", "lp93", "lp312"};
+
+    for(const auto& cascadeName : flpCascades) {
+        flploc.addCascade(cascadeName, readFileFromAssets(env, mgr, "", cascadeName.c_str()));
+    }
+}
+
 void pidroidlib::Pidroid::detectFace(JNIEnv *env, jobject thiz, jintArray rgbaBytes, jint width,
                                      jint height, jobject detection_info) {
 
@@ -377,42 +417,4 @@ void pidroidlib::Pidroid::detectFace(JNIEnv *env, jobject thiz, jintArray rgbaBy
     faceArray.clear();
     eyeArray.clear();
     landmarkArray.clear();
-}
-
-void
-pidroidlib::Pidroid::setup(JNIEnv *env, jobject thiz, jobject pidroidConfig, jobject assetManager) {
-    pidroidlib::CascadeParams cascadeParams = {
-            .minSize = env->GetIntField(pidroidConfig, jPidroidConfig.minsize),
-            .maxSize = env->GetIntField(pidroidConfig, jPidroidConfig.maxsize),
-            .shiftFactor = env->GetFloatField(pidroidConfig, jPidroidConfig.stridefactor),
-            .scaleFactor = env->GetFloatField(pidroidConfig, jPidroidConfig.scalefactor),
-            .angle = env->GetFloatField(pidroidConfig, jPidroidConfig.angle),
-            .minThreshold = env->GetFloatField(pidroidConfig, jPidroidConfig.qthreshold)
-    };
-
-    perturbs = env->GetIntField(pidroidConfig, jPidroidConfig.perturbs);
-    clustering = env->GetBooleanField(pidroidConfig, jPidroidConfig.clustering);
-    pupilDetectionEnable = env->GetBooleanField(pidroidConfig, jPidroidConfig.pupilDetectionEnable);
-    landmarkDetectionEnable = env->GetBooleanField(pidroidConfig, jPidroidConfig.landmarkDetectionEnable);
-    prominentFaceOnly = env->GetBooleanField(pidroidConfig, jPidroidConfig.prominentFaceOnly);
-
-    AAssetManager *mgr = AAssetManager_fromJava(env, assetManager);
-
-    std::vector<char> facefinder = readFileFromAssets(env, mgr, "", "facefinder");
-    std::vector<char> puploc = readFileFromAssets(env, mgr, "", "puploc");
-
-    picol = pidroidlib::Pico(cascadeParams);
-    picol.unpackPicoCascade(facefinder);
-
-    puploc1 = pidroidlib::Puploc();
-    puploc1.unpackCascade(puploc);
-
-    //TODO: Improve flp reads.
-    std::vector<std::string> flpCascades = {"lp38", "lp42", "lp44",
-                                            "lp46", "lp81", "lp82",
-                                            "lp84", "lp93", "lp312"};
-
-    for(const auto& cascadeName : flpCascades) {
-        flploc.addCascade(cascadeName, readFileFromAssets(env, mgr, "", cascadeName.c_str()));
-    }
 }

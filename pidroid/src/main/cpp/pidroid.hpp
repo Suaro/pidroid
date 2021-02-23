@@ -84,7 +84,7 @@ namespace pidroidlib {
     public:
         Pidroid() = default;
         ~Pidroid() = default;
-        int loadClasses(JNIEnv *env);
+        static int loadClasses(JNIEnv *env);
         void setup(JNIEnv *env, jobject thiz, jobject pidroidConfig, jobject assetManager);
         void detectFace(JNIEnv *env, jobject thiz, jintArray rgbaBytes, jint width,  jint height, jobject detection_info);
     };
