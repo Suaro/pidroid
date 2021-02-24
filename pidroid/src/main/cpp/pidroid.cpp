@@ -219,7 +219,7 @@ int pidroidlib::Pidroid::loadClasses(JNIEnv *env) {
         return -1;
     }
     jPidroidConfig.classRef = (jclass) env->NewGlobalRef(dCascadeClass);
-    jPidroidConfig.angle = env->GetFieldID(dCascadeClass, "angle", "F");
+    //jPidroidConfig.angle = env->GetFieldID(dCascadeClass, "angle", "F");
     jPidroidConfig.maxsize = env->GetFieldID(dCascadeClass, "maxsize", "I");
     jPidroidConfig.minsize = env->GetFieldID(dCascadeClass, "minsize", "I");
     jPidroidConfig.perturbs = env->GetFieldID(dCascadeClass, "perturbs", "I");
@@ -243,7 +243,8 @@ pidroidlib::Pidroid::setup(JNIEnv *env, jobject thiz, jobject pidroidConfig, job
             .maxSize = env->GetIntField(pidroidConfig, jPidroidConfig.maxsize),
             .shiftFactor = env->GetFloatField(pidroidConfig, jPidroidConfig.stridefactor),
             .scaleFactor = env->GetFloatField(pidroidConfig, jPidroidConfig.scalefactor),
-            .angle = env->GetFloatField(pidroidConfig, jPidroidConfig.angle),
+            //.angle = env->GetFloatField(pidroidConfig, jPidroidConfig.angle),
+            .angle = 0,
             .minThreshold = env->GetFloatField(pidroidConfig, jPidroidConfig.qthreshold)
     };
 

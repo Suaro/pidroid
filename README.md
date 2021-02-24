@@ -115,9 +115,68 @@ Still in progress..
 
 ## Usage
 
+### Basic usage
+
+Pidroid library provides singleton object called "Pidroid". First, you need setup library in your Activity onCreate.
+
+```kotlin
+override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(...)
+
+		// Do some stuff...
+
+        val pidroidConfig = PidroidConfig()
+        Pidroid.setup(this, pidroidConfig)
+    }
+```
+
+After setup finish, you can call detectFace function like this (example with Bitmap):
+
+```kotlin
+fun callDetectFace(bitmap: Bitmap): FaceDetectionResult {
+        val pixels = IntArray(bitmap.width * bitmap.height * 4)
+        bitmap.getPixels(pixels, 0, bitmap.width, 0, 0, bitmap.width, bitmap.height)
+        var dInfo = FaceDetectionResult()
+        Pidroid.detectFace(pixels, bitmap.width, bitmap.height, dInfo)
+        return dInfo
+    }
+
+```
+
+### Parameters
+
+All configuration parameters are in PidroidConfig class.
+
+| Parameter name                    | Description                                                                                                                                                                        | Default value                                           |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
+| minsize          | Min radius of faces detected                                                                        | 150                                                    |
+| maxsize          | Max radius of faces detected                                                                        | 1000                                                    |
+| prominentFaceOnly          | Parameter that determines if you want to return only the most predominant face                                                                        | False                              |
+| clustering          | This parameter groups detections to prevent a face from being detected multiple times                                                                      | True                              |
+| stridefactor          | This parameter determines how many pixels the sliding window is moved to detect. For example, if the value is 0.1 and the image is 1000 pixels wide, the sliding window will move every 100 pixels.                                                                      | 0.1                              |
+| scalefactor          | The PICO algorithm searches for different face sizes starting from minsize to maxsize. This parameter determines how much the search size increases each iteration.                                                                      | 1.1                        |
+| qthreshold          | Minimum threshold to consider a region as a face.   | 3.0                        |
+| perturbs          | The detection of pupils and landmarks, start from an initial region to predict the exact position. This initial region is disturbed N times to increase the precision of detection. This also makes the method slower the larger this parameter grows.   | 24                      |
+| pupilDetectionEnable          | This parameter enable pupil detection  | True                      |
+| landmarkDetectionEnable          | This parameter enable landmark detection. Its mandatory pupilDetectionEnable to True to detect landmarks. | True                      |
+
+### Examples
+
+In this project you will find two sample applications. The first is a simple application that performs the prediction on a bitmap and draws the result.
+The second opens the camera and performs face, pupil and landmark detection in real time using a separate Thread so as not to block the UI.
 
 README in construction... ;)
 
+
+## Author
+
+* Adrián Suárez Parra (https://linkedin.com/in/adriansp3)
+
+## License
+Copyright © 2021 Adrián Suárez Parra (Suaro)
+
+This software is distributed under the MIT license. See the [LICENSE](https://github.com/Suaro/pidroid/blob/master/LICENSE) file for the full license text.
 
 [forks-shield]: https://img.shields.io/github/forks/Suaro/pidroid.svg?style=for-the-badge
 [forks-url]: https://github.com/Suaro/pidroid/network/members
