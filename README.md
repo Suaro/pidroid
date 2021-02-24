@@ -1,11 +1,15 @@
+
+
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src=".github/images/pidroid-icon.png" alt="Logo" width="240" height="240">
+  <a href="https://github.com/Suaro/pidroid">
+    <img src=".github/images/pidroid-icon.png" alt="Logo" width="240" height="240"/>
   </a>
 
   <h1 align="center">Pidroid</h1>
 
 </p>
+<div align="center">[![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![MIT License][license-shield]][license-url] [![LinkedIn][linkedin-shield]][linkedin-url]
+</div>
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -15,8 +19,10 @@
   * [Built With](#built-with)
   * [Roadmap](#roadmap)
 
-
 ## About the Project
+<div align="center">
+	<img align="center" src=".github/images/friends_result.png" alt="Logo" height="400"/>
+</div>
 
 Pidroid is android library to perform fast face detection, pupil detection and landmarks detection without third-party dependencies dependencies.
 
@@ -34,6 +40,14 @@ Pidroid provides a completely dependency-free alternative to make it easier for 
 
 This library currently is full developed in Kotlin with C++, no additional dependencies or installation is needed :) 
 
+- Face detection feature is based on ***Pixel Intensity Comparison-based Object detection*** paper (https://arxiv.org/pdf/1305.4537.pdf)
+- Pupil detection feature is based on [Eye pupil localization with an ensemble of randomized trees](https://www.sciencedirect.com/science/article/abs/pii/S0031320313003294)
+- Landmarks detection feature is based on [Fast Localization of Facial Landmark Points](https://arxiv.org/pdf/1403.6888.pdf)
+
+
+<div align="center">
+	<img align="center" src=".github/images/tony_stark_result.png" alt="Logo" height="400"/>
+</div>
 
 ### Roadmap
 
@@ -51,4 +65,18 @@ This library currently is full developed in Kotlin with C++, no additional depen
 - [ ] Tegra support
 
 
+
 README in construction... ;)
+
+
+[forks-shield]: https://img.shields.io/github/forks/Suaro/pidroid.svg?style=for-the-badge
+[forks-url]: https://github.com/Suaro/pidroid/network/members
+[stars-shield]: https://img.shields.io/github/stars/Suaro/pidroid.svg?style=for-the-badge
+[stars-url]: https://github.com/Suaro/pidroid/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Suaro/pidroid.svg?style=for-the-badge
+[issues-url]: https://github.com/Suaro/pidroid/issues
+[license-shield]: https://img.shields.io/github/license/Suaro/pidroid.svg?style=for-the-badge
+[license-url]: https://github.com/Suaro/pidroid/blob/master/LICENSE
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/adriansp3
+

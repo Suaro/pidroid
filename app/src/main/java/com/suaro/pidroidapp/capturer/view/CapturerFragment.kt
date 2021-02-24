@@ -38,7 +38,7 @@ class CapturerFragment : Fragment(), ImageProcessor.View, CameraPreviewListener 
             )
         }
         //TODO: Fix this...
-        (activity as MainActivity).addCameraPreviewListener(this)
+        (activity as ImageActivity).addCameraPreviewListener(this)
     }
 
     override fun onCreate(savedInstance: Bundle?) {

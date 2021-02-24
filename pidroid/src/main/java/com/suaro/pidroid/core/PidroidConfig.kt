@@ -11,12 +11,12 @@ class PidroidConfig {
 
     var qthreshold: Float = 3.0f
 
-    var perturbs: Int = 10;
+    var perturbs: Int = 63;
 
     var clustering: Boolean = true
 
     var pupilDetectionEnable: Boolean = true
     var landmarkDetectionEnable: Boolean = true
 
-    var prominentFaceOnly: Boolean = true
+    var prominentFaceOnly: Boolean = false
 }
