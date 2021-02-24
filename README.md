@@ -1,15 +1,15 @@
+[![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![MIT License][license-shield]][license-url] [![LinkedIn][linkedin-shield]][linkedin-url]
 
+<br/>
 
 <p align="center">
   <a href="https://github.com/Suaro/pidroid">
     <img src=".github/images/pidroid-icon.png" alt="Logo" width="240" height="240"/>
   </a>
-
   <h1 align="center">Pidroid</h1>
-
 </p>
-<div align="center">[![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![MIT License][license-shield]][license-url] [![LinkedIn][linkedin-shield]][linkedin-url]
-</div>
+
+
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -21,7 +21,7 @@
 
 ## About the Project
 <div align="center">
-	<img align="center" src=".github/images/friends_result.png" alt="Logo" height="400"/>
+	<img align="center" src=".github/images/friends_result.png" alt="Logo" height="320"/>
 </div>
 
 Pidroid is android library to perform fast face detection, pupil detection and landmarks detection without third-party dependencies dependencies.
@@ -46,7 +46,7 @@ This library currently is full developed in Kotlin with C++, no additional depen
 
 
 <div align="center">
-	<img align="center" src=".github/images/tony_stark_result.png" alt="Logo" height="400"/>
+	<img align="center" src=".github/images/tony_stark_result.png" alt="Logo" height="320"/>
 </div>
 
 ### Roadmap
