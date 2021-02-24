@@ -226,7 +226,8 @@ int pidroidlib::Pidroid::loadClasses(JNIEnv *env) {
     jPidroidConfig.clustering = env->GetFieldID(dCascadeClass, "clustering", "Z");
     jPidroidConfig.qthreshold = env->GetFieldID(dCascadeClass, "qthreshold", "F");
     jPidroidConfig.scalefactor = env->GetFieldID(dCascadeClass, "scalefactor", "F");
-    jPidroidConfig.stridefactor = env->GetFieldID(dCascadeClass, "stridefactor", "F");
+    jPidroidConfig.stridefactorWidth = env->GetFieldID(dCascadeClass, "stridefactorWidth", "F");
+    jPidroidConfig.stridefactorHeight = env->GetFieldID(dCascadeClass, "stridefactorHeight", "F");
     jPidroidConfig.pupilDetectionEnable = env->GetFieldID(dCascadeClass, "pupilDetectionEnable", "Z");
     jPidroidConfig.landmarkDetectionEnable = env->GetFieldID(dCascadeClass, "landmarkDetectionEnable", "Z");
     jPidroidConfig.prominentFaceOnly = env->GetFieldID(dCascadeClass, "prominentFaceOnly", "Z");
@@ -241,7 +242,8 @@ pidroidlib::Pidroid::setup(JNIEnv *env, jobject thiz, jobject pidroidConfig, job
     pidroidlib::CascadeParams cascadeParams = {
             .minSize = env->GetIntField(pidroidConfig, jPidroidConfig.minsize),
             .maxSize = env->GetIntField(pidroidConfig, jPidroidConfig.maxsize),
-            .shiftFactor = env->GetFloatField(pidroidConfig, jPidroidConfig.stridefactor),
+            .shiftFactorWidth = env->GetFloatField(pidroidConfig, jPidroidConfig.stridefactorWidth),
+            .shiftFactorHeight = env->GetFloatField(pidroidConfig, jPidroidConfig.stridefactorHeight),
             .scaleFactor = env->GetFloatField(pidroidConfig, jPidroidConfig.scalefactor),
             //.angle = env->GetFloatField(pidroidConfig, jPidroidConfig.angle),
             .angle = 0,

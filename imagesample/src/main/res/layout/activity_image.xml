@@ -11,7 +11,7 @@
         android:layout_height="0dp"
         android:adjustViewBounds="true"
         android:keepScreenOn="true"
-        app:srcCompat="@drawable/tonystark"
+        app:srcCompat="@drawable/friends"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

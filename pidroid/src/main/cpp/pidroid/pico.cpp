@@ -11,7 +11,8 @@ namespace pidroidlib {
         this->cascadeParams = {
                 .minSize = 100,
                 .maxSize = 1024,
-                .shiftFactor = 0.1,
+                .shiftFactorWidth = 0.1,
+                .shiftFactorHeight = 0.1,
                 .scaleFactor = 1.1,
                 .angle = 0,
                 .minThreshold = 5
@@ -231,21 +232,23 @@ namespace pidroidlib {
 
         PicoResult result = {};
 
-        int step, row, col, offset;
+        int stepRow, stepCol, row, col, offset;
         float q;
 
         auto scale = cascadeParams.minSize;
         const auto maxsizef = float(cascadeParams.maxSize);
-        const float shiftFactor = cascadeParams.shiftFactor;
+        const float shiftFactorWidth = cascadeParams.shiftFactorWidth;
+        const float shiftFactorHeight = cascadeParams.shiftFactorHeight;
         const float angle = cascadeParams.angle > 1 ? 1 : cascadeParams.angle;
         const float scaleFactor = cascadeParams.scaleFactor;
 
         while (scale <= maxsizef) {
-            step = max(int(shiftFactor * scale), 1);
+            stepRow = max(int(shiftFactorHeight * scale), 1);
+            stepCol = max(int(shiftFactorWidth * scale), 1);
             offset = scale / 2 + 1;
 
-            for (row = offset; row <= rows - offset; row += step) {
-                for (col = offset; col <= cols - offset; col += step) {
+            for (row = offset; row <= rows - offset; row += stepRow) {
+                for (col = offset; col <= cols - offset; col += stepCol) {
                     if (angle > 0) {
                         q = classifyRotatedRegion(row, col, scale, angle, rows,
                                                   cols, pixels, dim);

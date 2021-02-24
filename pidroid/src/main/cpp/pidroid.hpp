@@ -10,7 +10,8 @@ namespace pidroidlib {
         jfieldID maxsize;
         jfieldID angle;
         jfieldID scalefactor;
-        jfieldID stridefactor;
+        jfieldID stridefactorWidth;
+        jfieldID stridefactorHeight;
         jfieldID qthreshold;
         jfieldID perturbs;
         jfieldID clustering;

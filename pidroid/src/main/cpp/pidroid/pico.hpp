@@ -35,7 +35,8 @@ namespace pidroidlib {
     struct CascadeParams {
         int minSize;
         int maxSize;
-        float shiftFactor;
+        float shiftFactorWidth;
+        float shiftFactorHeight;
         float scaleFactor;
         float angle;
         float minThreshold;
