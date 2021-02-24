@@ -1,6 +1,4 @@
-[![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![MIT License][license-shield]][license-url] [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<br/>
 
 <p align="center">
   <a href="https://github.com/Suaro/pidroid">
@@ -9,7 +7,11 @@
   <h1 align="center">Pidroid</h1>
 </p>
 
+<br/>
 
+[![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![MIT License][license-shield]][license-url] [![LinkedIn][linkedin-shield]][linkedin-url]
+
+<br/>
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
