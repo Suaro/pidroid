@@ -8,6 +8,7 @@
 </p>
 
 <br/>
+
 [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![MIT License][license-shield]][license-url] [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- TABLE OF CONTENTS -->
@@ -20,6 +21,11 @@
 * [Implementation](#usage)
   * [Local implementation](#local-implementation)
   * [Gradle implementation](#gradle-implementation)
+* [Usage](#usage)
+  * [Basic Usage](#basic-usage)
+  * [Parameters](#parameters)
+  * [Examples](#examples)
+
 ## About the Project
 <div align="center">
 	<img align="center" src=".github/images/friends_result.png" alt="Logo" height="320"/>
@@ -89,12 +95,25 @@ Then click on Import .JAR/.AAR Package and select pidroid-release.aar module. Yo
 	<img align="center" src=".github/images/project_structure" alt="Logo" height="500"/>
 </div>
 
+Finally, add the following line to your build.gradle of the app module:
+
+```xml
+implementation project(path: ':pidroid-release')
+```
+
+Your app's build.gradle look like this:
+
+<div align="center">
+	<img align="center" src=".github/images/import_pidroid_release.png" alt="Logo" height="500"/>
+</div>
+
+
 ### Gradle implementation
 
 Still in progress..
 
 
-
+## Usage
 
 
 README in construction... ;)
