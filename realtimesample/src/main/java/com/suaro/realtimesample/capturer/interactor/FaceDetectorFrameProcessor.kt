@@ -42,7 +42,7 @@ class FaceDetectorFrameProcessor(listener: ImageProcessor.Interactor.FinishListe
                 val detectionInfo: FaceDetectionResult = this.detect(outputFrame, previewWidth, previewHeight)
                 listener.onFaceDetectorFinish(detectionInfo)
             } catch (t: Throwable) {
-                Log.e(TAG, t.message.toString())
+                Log.e(FaceDetectorFrameProcessor.TAG, t.message.toString())
             }
         }
 

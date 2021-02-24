@@ -19,13 +19,12 @@ import android.view.Surface
 import android.view.TextureView
 import androidx.core.content.ContextCompat
 import com.suaro.realtimesample.camera.entity.Flash
-import com.suaro.realtimesample.camera.Camera
 import java.util.*
 import java.util.Collections.singletonList
 import kotlin.Comparator
 
 
-class CameraManager(private val activity: Activity, private val textureView: AutoFitTextureView, private val cameraView: Camera.View) {
+class CameraManager(private val activity: Activity, private val textureView: AutoFitTextureView, private val cameraView: com.suaro.realtimesample.camera.Camera.View) {
 
     private var first: Boolean = true
 
