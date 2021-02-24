@@ -1,3 +1,4 @@
+include ':realtimesample'
 include ':pidroid'
-include ':app'
+include ':imagesample'
 rootProject.name = "PiDroid"
