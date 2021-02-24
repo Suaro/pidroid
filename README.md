@@ -25,6 +25,8 @@
   * [Basic Usage](#basic-usage)
   * [Parameters](#parameters)
   * [Examples](#examples)
+  	* [Image demo](#image-demo)
+  	* [Real time demo](#real-time-demo) 
 
 ## About the Project
 <div align="center">
@@ -164,10 +166,20 @@ All configuration parameters are in PidroidConfig class.
 ### Examples
 
 In this project you will find two sample applications. The first is a simple application that performs the prediction on a bitmap and draws the result.
+
 The second opens the camera and performs face, pupil and landmark detection in real time using a separate Thread so as not to block the UI.
 
-README in construction... ;)
+#### Image demo
 
+Still in progress..
+
+#### Real Time demo
+
+<div align="center">
+	<img align="center" src=".github/images/pidroid_real_time.gif" alt="Logo" height="400"/>
+</div>
+
+Still in progress..
 
 ## Author
 
