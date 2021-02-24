@@ -8,10 +8,7 @@
 </p>
 
 <br/>
-
 [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![MIT License][license-shield]][license-url] [![LinkedIn][linkedin-shield]][linkedin-url]
-
-<br/>
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -20,7 +17,9 @@
   * [Motivation](#motivation)
   * [Built With](#built-with)
   * [Roadmap](#roadmap)
-
+* [Implementation](#usage)
+  * [Local implementation](#local-implementation)
+  * [Gradle implementation](#gradle-implementation)
 ## About the Project
 <div align="center">
 	<img align="center" src=".github/images/friends_result.png" alt="Logo" height="320"/>
@@ -67,6 +66,36 @@ This library currently is full developed in Kotlin with C++, no additional depen
 - [ ] Tegra support
 
 
+## Usage
+
+
+
+### Local implementation
+
+First, right click on your app module and click on __Open Module Settings__.
+<div align="center">
+	<img align="center" src=".github/images/module_settings_1" alt="Logo" height="500"/>
+</div>
+
+Now, click on + button above app module. The following window will open:
+
+<div align="center">
+	<img align="center" src=".github/images/select_module_type.png" alt="Logo" height="500"/>
+</div>
+
+Then click on Import .JAR/.AAR Package and select pidroid-release.aar module. Your project look like this:
+
+<div align="center">
+	<img align="center" src=".github/images/project_structure" alt="Logo" height="500"/>
+</div>
+
+### Gradle implementation
+
+Still in progress..
+
+
+
+
 
 README in construction... ;)
 
@@ -81,4 +110,3 @@ README in construction... ;)
 [license-url]: https://github.com/Suaro/pidroid/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/adriansp3
-
