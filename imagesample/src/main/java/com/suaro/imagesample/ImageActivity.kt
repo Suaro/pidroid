@@ -40,23 +40,26 @@ class ImageActivity : AppCompatActivity() {
         val handler: Handler = Handler();
 
         handler.postDelayed({
-            val drawable: BitmapDrawable = imageTest.getDrawable() as BitmapDrawable
-            val bitmap: Bitmap = drawable.bitmap
-            canvasView.setAspectRatio(bitmap.width, bitmap.height)
-            val dinfo = callDetectFace(bitmap)
-            drawResult(dinfo)
-
-        }, 1000)
+            performFaceDetection()
+        }, 100)
     }
 
     override fun onDestroy() {
         super.onDestroy()
     }
 
+    private fun performFaceDetection() {
+        val drawable: BitmapDrawable = imageTest.getDrawable() as BitmapDrawable
+        val bitmap: Bitmap = drawable.bitmap
+        canvasView.setAspectRatio(bitmap.width, bitmap.height)
+        val dinfo = callDetectFace(bitmap)
+        drawResult(dinfo)
+    }
+
     fun callDetectFace(bitmap: Bitmap): FaceDetectionResult {
         val pixels = IntArray(bitmap.width * bitmap.height * 4)
         bitmap.getPixels(pixels, 0, bitmap.width, 0, 0, bitmap.width, bitmap.height)
-        var dInfo = FaceDetectionResult()
+        val dInfo = FaceDetectionResult()
         Pidroid.detectFace(pixels, bitmap.width, bitmap.height, dInfo)
         return dInfo
     }

@@ -155,11 +155,11 @@ All configuration parameters are in PidroidConfig class.
 | maxsize          | Max radius of faces detected                                                                        | 1000                                                    |
 | prominentFaceOnly          | Parameter that determines if you want to return only the most predominant face                                                                        | False                              |
 | clustering          | This parameter groups detections to prevent a face from being detected multiple times                                                                      | True                              |
-| stridefactorWidth          | This parameter determines how many pixels the sliding window is moved to detect. For example, if the value is 0.1 and the image is 1000 pixels wide, the sliding window will move every 100 pixels.                                                                      | 0.2                              |
-| stridefactorHeight          | Same as stridefactorWidth but for height                                                              | 0.12                              |
+| stridefactorWidth          | This parameter determines how many pixels the sliding window is moved to detect. For example, if the value is 0.1 and the image is 1000 pixels wide, the sliding window will move every 100 pixels.                                                                      | 0.1                              |
+| stridefactorHeight          | Same as stridefactorWidth but for height                                                              | 0.1                              |
 | scalefactor          | The PICO algorithm searches for different face sizes starting from minsize to maxsize. This parameter determines how much the search size increases each iteration.                                                                      | 1.1                        |
 | qthreshold          | Minimum threshold to consider a region as a face.   | 3.0                        |
-| perturbs          | The detection of pupils and landmarks, start from an initial region to predict the exact position. This initial region is disturbed N times to increase the precision of detection. This also makes the method slower the larger this parameter grows.   | 24                      |
+| perturbs          | The detection of pupils and landmarks, start from an initial region to predict the exact position. This initial region is disturbed N times to increase the precision of detection. This also makes the method slower the larger this parameter grows.   | 10                      |
 | pupilDetectionEnable          | This parameter enable pupil detection  | True                      |
 | landmarkDetectionEnable          | This parameter enable landmark detection. Its mandatory pupilDetectionEnable to True to detect landmarks. | True                      |
 

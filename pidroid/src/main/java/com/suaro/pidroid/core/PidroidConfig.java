@@ -4,8 +4,8 @@ public final class PidroidConfig {
     private int minsize = 150;
     private int maxsize = 1000;
     private float scalefactor = 1.1F;
-    private float stridefactorWidth = 0.2F;
-    private float stridefactorHeight = 0.12F;
+    private float stridefactorWidth = 0.1F;
+    private float stridefactorHeight = 0.1F;
     private float qthreshold = 3.0F;
     private int perturbs = 10;
     private boolean clustering = true;
