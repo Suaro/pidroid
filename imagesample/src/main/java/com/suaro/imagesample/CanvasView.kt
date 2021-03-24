@@ -36,7 +36,11 @@ class CanvasView @JvmOverloads constructor(context: Context, attrs: AttributeSet
         paint.setColor(color)
         paint.setStrokeWidth(RECT_BORDER_WIDTH);
 
-        canvas?.drawRoundRect(rect.left.toFloat(), rect.top.toFloat(), rect.right.toFloat(), rect.bottom.toFloat(), RECT_BORDER_RADIUS, RECT_BORDER_RADIUS, paint);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            canvas?.drawRoundRect(rect.left.toFloat(), rect.top.toFloat(), rect.right.toFloat(), rect.bottom.toFloat(), RECT_BORDER_RADIUS, RECT_BORDER_RADIUS, paint)
+        } else {
+            canvas?.drawRect(rect, paint)
+        }
     }
 
     fun drawCircle(circle: Circle, canvas: Canvas?, color: Int = Color.GREEN) {;

@@ -6,7 +6,7 @@ public final class PidroidConfig {
     private float scalefactor = 1.1F;
     private float stridefactorWidth = 0.2F;
     private float stridefactorHeight = 0.12F;
-    private float qthreshold = 1.0F;
+    private float qthreshold = 3.0F;
     private int perturbs = 10;
     private boolean clustering = true;
     private boolean pupilDetectionEnable = true;
@@ -69,7 +69,7 @@ public final class PidroidConfig {
         this.perturbs = perturbs;
     }
 
-    public boolean isClustering() {
+    public boolean getClustering() {
         return clustering;
     }
 
@@ -77,7 +77,7 @@ public final class PidroidConfig {
         this.clustering = clustering;
     }
 
-    public boolean isPupilDetectionEnable() {
+    public boolean getPupilDetectionEnable() {
         return pupilDetectionEnable;
     }
 
@@ -85,7 +85,7 @@ public final class PidroidConfig {
         this.pupilDetectionEnable = pupilDetectionEnable;
     }
 
-    public boolean isLandmarkDetectionEnable() {
+    public boolean getLandmarkDetectionEnable() {
         return landmarkDetectionEnable;
     }
 
@@ -93,7 +93,7 @@ public final class PidroidConfig {
         this.landmarkDetectionEnable = landmarkDetectionEnable;
     }
 
-    public boolean isProminentFaceOnly() {
+    public boolean getProminentFaceOnly() {
         return prominentFaceOnly;
     }
 

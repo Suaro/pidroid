@@ -66,12 +66,11 @@ This library currently is full developed in Kotlin with C++, no additional depen
 - [x] Face detection
 - [x] Pupil detection
 - [x] Landmarks detection
+- [x] Pure Java Pidroid (to delete avoid Kotlin dependency)
 - [ ] Publish Library as Github Package
-- [ ] Pure Java Pidroid (to delete avoid Kotlin dependency)
 - [ ] Rotated faces detection
 - [ ] Neon support
 - [ ] SSE support
-- [ ] Tegra support
 
 
 ## Usage
