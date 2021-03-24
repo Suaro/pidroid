@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity(), Camera.View, Capturer.View{
 
     private fun setupNative() {
         val pidroidConfig = PidroidConfig()
+        pidroidConfig.isProminentFaceOnly = true
         Pidroid.setup(this, pidroidConfig)
     }
 

@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_suaro_pidroid_core_NativeMethods_00024Companion_setup(JNIEnv *env, jobject thiz, jobject pidroidConfig, jobject assetManager) {
+Java_com_suaro_pidroid_core_NativeMethods_setup(JNIEnv *env, jobject thiz, jobject pidroidConfig, jobject assetManager) {
 
    pidroid = pidroidlib::Pidroid();
    pidroid.setup(env, thiz, pidroidConfig, assetManager);
@@ -54,7 +54,7 @@ Java_com_suaro_pidroid_core_NativeMethods_00024Companion_setup(JNIEnv *env, jobj
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_suaro_pidroid_core_NativeMethods_00024Companion_detectFace(JNIEnv *env, jobject thiz,
+Java_com_suaro_pidroid_core_NativeMethods_detectFace(JNIEnv *env, jobject thiz,
                                                                     jintArray rgbaBytes, jint width,
                                                                     jint height,
                                                                     jobject detection_info) {
